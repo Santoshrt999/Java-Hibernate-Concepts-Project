@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        
+        
+        
+<hibernate-mapping>
+
+<class name="hibernate.association.Product" table="Product" schema="hibschema">
+<id name="prodid" column="product_id"></id>
+<property name="prodname" column="Product_name" not-null="true"></property>
+
+<set name="setpart" cascade="all">
+<key column="product_id"></key>
+<one-to-many class="hibernate.association.Parts"/>
+</set>
+
+
+</class>
+
+
+
+</hibernate-mapping>        

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+        
+       <class name="hibernate.inheritance.Payment" table="PAYMENT_CONCRETE" schema = "hibshema">
+       <id name="paymenntid" column="PAYMENT_ID">
+       <generator class="increment"></generator>
+       </id>
+       
+       
+       
+        <property name = "amount" column="Amount"/>
+        
+        
+        <union-subclass name="hibernate.inheritance.Creditcard" table="CREDITCARD"> 
+        <property name="ccnum" column="CC_NUMBER"/>
+        
+        <property name="ccvv" column="CC_CVV"/>
+        
+        
+        </union-subclass>
+       
+        <union-subclass name="hibernate.inheritance.ChequePayment" table="CHEQUE"> 
+        <property name="cheqnum" column="Cheque_NUMBER"/>
+        
+        <property name="ccqu" column="Cheque_CVV"/>
+        
+        
+        </union-subclass>
+        
+        
+        </class>
+     </hibernate-mapping>
